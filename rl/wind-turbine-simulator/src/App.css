@@ -1,0 +1,87 @@
+/* App.css */
+.turbine {
+  min-width: 120px; /* Ensure minimum width for readability */
+  height: 100px; /* Maintain a fixed height for uniformity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative; /* Ensure this is here for the arrow to position correctly */
+}
+
+/* Adjusting arrow to be visible and correctly placed between the cards */
+.turbine:after {
+  content: '→';
+  color: black;
+  position: absolute;
+  right: -60px; /* Increase distance to account for larger margin */
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 24px;
+  z-index: 0; /* Ensure arrows are not above the cards */
+}
+
+.turbine:last-child:after {
+  content: ''; /* Remove arrow from the last turbine block */
+}
+
+/* Ensure the arrows do not disappear under the container at certain zoom levels */
+.states-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 60px; /* Increase gap if necessary to maintain visual integrity */
+  align-items: center;
+  position: relative; /* Needed for absolute positioning of children */
+  padding: 10px 60px; /* Add padding to ensure arrows are visible at the ends */
+}
+
+.normal {
+  background-color: #4CAF50;
+}
+
+.faulty {
+  background-color: #F44336;
+}
+
+.maintenance {
+  background-color: gray;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  padding: 20px; /* Increase padding for better framing */
+  margin: 20px auto;
+  width: 95%; /* Full width but with padding from the sides */
+  min-height: 200px; /* Set a minimum height */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.states-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  flex-grow: 1; /* Allow this container to grow and fill the card */
+}
+
+.zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+button.zoom {
+  padding: 5px 10px;
+  cursor: pointer;
+}
